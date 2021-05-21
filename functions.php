@@ -151,6 +151,9 @@ function ecom_scripts()
 	wp_style_add_data('ecom-style', 'rtl', 'replace');
 
 	wp_enqueue_script('ecom-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	wp_enqueue_script('ecom-bootstrap-popper', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js', array('jquery'));
+	wp_enqueue_script('ecom-bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js', array('jquery'));
+	wp_enqueue_script('ecom-script', get_template_directory_uri() . '/js/script.js', array('jquery'), _S_VERSION, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
@@ -210,7 +213,8 @@ function woocommerce_header_add_to_cart_fragment($fragments)
 	ob_start();
 
 ?>
-	<a class="cart-customlocation" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>"><?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count); ?> - <?php echo $woocommerce->cart->get_cart_total(); ?></a>
+	<a class="cart-customlocation" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>"><?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count); ?>
+		- <?php echo $woocommerce->cart->get_cart_total(); ?></a>
 <?php
 	$fragments['a.cart-customlocation'] = ob_get_clean();
 	return $fragments;
