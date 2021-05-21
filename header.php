@@ -66,7 +66,7 @@
 
             <div class="container pt-2 pb-2">
                 <div class="row align-items-center">
-                    <div class="col site-header__logo d-flex justify-content-center justify-content-md-start pb-2">
+                    <div class="col site-header__logo d-flex justify-content-center justify-content-md-start">
                         <?php the_custom_logo(); ?>
                     </div>
                     <div class="col-md-5"><?php if (function_exists('aws_get_search_form')) {
