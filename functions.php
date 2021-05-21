@@ -147,6 +147,7 @@ function ecom_scripts()
 {
 	wp_enqueue_style('ecom-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_enqueue_style('ecom-main', get_template_directory_uri() . '/css/main.css');
+	wp_enqueue_style('bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css');
 	wp_style_add_data('ecom-style', 'rtl', 'replace');
 
 	wp_enqueue_script('ecom-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
